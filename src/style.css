@@ -1,0 +1,27 @@
+/* Initially hide the unlock icon */
+.unlock-icon {
+    display: none;
+}
+
+/* When the button is hovered, show the unlock icon and hide the lock icon */
+.hover-icon:hover .unlock-icon {
+    display: inline-block;
+}
+
+.hover-icon:hover .lock-icon {
+    display: none;
+}
+
+/* Initially hide the unlock icon */
+.arrow-out {
+    display: none;
+}
+
+/* When the button is hovered, show the unlock icon and hide the lock icon */
+.hover-icon:hover .arrow-out {
+    display: inline-block;
+}
+
+.hover-icon:hover .arrow-in {
+    display: none;
+}
