@@ -76,7 +76,7 @@ export default function ProfileMidBody() {
                             return (
                                 <Card key={post.id} className="mb-3">
                                     <Card.Body>
-                                        <Card.Title>{post.title}<br />{formattedDate}</Card.Title>
+                                        <Card.Title>{formattedDate}<br /><hr />Title: {post.title}</Card.Title>
                                         <hr />
                                         <Card.Text>{post.content}</Card.Text>
                                         <div className="d-flex justify-content-end">

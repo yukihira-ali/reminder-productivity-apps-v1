@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import ReminderForm from "./ReminderForm";
 import { auth } from "../firebase";
-import { Navbar } from "react-bootstrap";
+import { Button, Navbar } from "react-bootstrap";
 
 export default function CreatePost() {
 
@@ -47,8 +47,9 @@ export default function CreatePost() {
     return (
         <div className="container mt-5">
             <Navbar>
-                <button onClick={handleBacktoProfile}>Back to Profile</button>
+                <Button variant="secondary" onClick={handleBacktoProfile}>Back to Profile</Button>
             </Navbar>
+
 
             <ReminderForm onSubmit={handlePost} />
         </div>
