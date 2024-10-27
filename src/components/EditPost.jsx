@@ -9,7 +9,7 @@ export default function EditPost() {
 
     useEffect(() => {
         const fetchPost = async () => {
-            const response = await fetch(`https://06030352-4adc-45cf-9d08-4008063ab4a9-00-29ba1uc97w0lh.sisko.replit.dev/posts/${id}`);
+            const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/${id}`);
             if (response.ok) {
                 const data = await response.json();
                 setEditPost(data);
@@ -20,7 +20,7 @@ export default function EditPost() {
 
     const handleEditPost = async (e) => {
         e.preventDefault();
-        const response = await fetch(`https://06030352-4adc-45cf-9d08-4008063ab4a9-00-29ba1uc97w0lh.sisko.replit.dev/posts/${id}`, {
+        const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

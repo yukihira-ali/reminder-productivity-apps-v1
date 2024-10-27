@@ -16,7 +16,7 @@ export default function CreatePost() {
                 throw new Error('User not found');
             }
             const idToken = await user.getIdToken();
-            const response = await fetch('https://06030352-4adc-45cf-9d08-4008063ab4a9-00-29ba1uc97w0lh.sisko.replit.dev/posts', {
+            const response = await fetch('https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
