@@ -6,6 +6,7 @@ import CreatePost from "./components/CreatePost";
 import EditPost from "./components/EditPost";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import GalleryPage from "./pages/GalleryPage";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -17,7 +18,7 @@ export default function App() {
           <Route path="/create" element={<CreatePost />} />
           <Route path="/edit/:id" element={<EditPost />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="*" element={<AuthPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
