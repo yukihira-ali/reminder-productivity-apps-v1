@@ -44,7 +44,7 @@ export default function AuthPage() {
             const idToken = await user.getIdToken(true);
 
             // Send the token to Replit backend
-            const response = await fetch("https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/verify-token", {
+            const response = await fetch("https://be-reminder-productivity-app-v1.vercel.app/verify-token", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${idToken}`,

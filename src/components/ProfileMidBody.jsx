@@ -19,7 +19,7 @@ export default function ProfileMidBody() {
 
     const fetchPosts = async (uid) => {
         try {
-            const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/user/${uid}`);
+            const response = await fetch(`https://be-reminder-productivity-app-v1.vercel.app/posts/user/${uid}`);
             if (response.ok) {
                 const data = await response.json();
                 setPosts(data);
@@ -38,7 +38,7 @@ export default function ProfileMidBody() {
     }
 
     const handleDeletePost = async (id) => {
-        const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/${id}`, {
+        const response = await fetch(`https://be-reminder-productivity-app-v1.vercel.app/posts/${id}`, {
             method: 'DELETE',
         });
         if (response.ok) {
