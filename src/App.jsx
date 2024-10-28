@@ -17,7 +17,7 @@ export default function App() {
           <Route path="/create" element={<CreatePost />} />
           <Route path="/edit/:id" element={<EditPost />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="*" element={<ProfilePage />} />
+          <Route path="*" element={<AuthPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider";
 import ProfileSideBar from "../components/ProfileSideBar";
 import ProfileMidBody from "../components/ProfileMidBody";
-import ChatBotModal from "../components/ChatBotModal";
 import DateTime from "../components/DateTime";
+import Chatbot from "../components/Chatbot";
 
 export default function ProfilePage() {
 
@@ -54,7 +54,7 @@ export default function ProfilePage() {
                     <ProfileMidBody />
                 </Col>
                 <Col xs={12} md={4} lg={3} style={{ padding: "10px" }}>
-                    <ChatBotModal />
+                    <Chatbot />
                 </Col>
             </Row>
         </Container>
