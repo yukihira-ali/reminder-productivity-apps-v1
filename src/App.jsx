@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom"; // Change here
 import AuthPage from "./pages/AuthPage";
 import ProfilePage from "./pages/ProfilePage";
 import AuthProvider from "./components/AuthProvider";
@@ -10,7 +10,7 @@ import GalleryPage from "./pages/GalleryPage";
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <Router> {/* Changed from BrowserRouter to HashRouter */}
         <Routes>
           <Route path="/login" element={<AuthPage />} />
           <Route path="/profile" element={<ProfilePage />} />
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="*" element={<AuthPage />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </AuthProvider>
-  )
+  );
 }
