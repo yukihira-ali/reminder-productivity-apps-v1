@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } f
 
 export default function AuthPage() {
 
-    const loginImage = 'public/images/login.png';
+    const loginImage = 'public/images/planner.jpg';
 
     // Possible modals: null (no modal shows), SignUp, Login
     const [modalShow, setModalShow] = useState(null);
