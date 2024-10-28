@@ -17,36 +17,27 @@ export default function Chatbot() {
             }
         ];
 
-        try {
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    model: 'gpt-3.5-turbo',
-                    messages: messagesToSend
-                })
-            });
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model: 'gpt-3.5-turbo',
+                messages: messagesToSend
+            })
+        })
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.error('API error:', errorData);
-                return; // Exit if there is an error
-            }
+        const data = await response.json();
 
-            const data = await response.json();
-            console.log(data); // Log the API response for debugging
-
+        if (data) {
             let newAllMessages = [
                 ...messagesToSend,
                 data.choices[0].message
-            ];
+            ]
             setAllMessages(newAllMessages);
             setMessage('');
-        } catch (error) {
-            console.error('Error sending message:', error);
         }
     }
 
@@ -74,5 +65,5 @@ export default function Chatbot() {
                 </form>
             </div>
         </div>
-    );
+    )
 }
