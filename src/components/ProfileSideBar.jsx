@@ -23,7 +23,7 @@ export default function ProfileSideBar() {
 
     return (
         <Col
-            sm={10}
+            sm={18}
             className='d-flex flex-column justify-content-start align-items-center bg-light vh-50'
             style={{ position: "sticky", top: 0, zIndex: 10 }}
         >

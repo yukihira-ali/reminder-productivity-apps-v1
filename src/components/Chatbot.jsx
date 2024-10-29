@@ -8,6 +8,7 @@ export default function Chatbot() {
         e.preventDefault();
         const API_URL = "https://api.openai.com/v1/chat/completions";
         const apiKey = import.meta.env.VITE_OPENAI_API_KEY; // Replace with your OpenAI API key
+        console.log(apiKey);
 
         const messagesToSend = [
             ...allMessages,

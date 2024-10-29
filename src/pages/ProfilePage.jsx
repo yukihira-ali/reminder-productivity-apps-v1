@@ -5,7 +5,6 @@ import { AuthContext } from "../components/AuthProvider";
 import ProfileSideBar from "../components/ProfileSideBar";
 import ProfileMidBody from "../components/ProfileMidBody";
 import DateTime from "../components/DateTime";
-import Chatbot from "../components/Chatbot";
 
 export default function ProfilePage() {
 
@@ -52,9 +51,6 @@ export default function ProfilePage() {
                 </Col>
                 <Col xs={12} md={4} lg={6} style={{ padding: "10px" }}>
                     <ProfileMidBody />
-                </Col>
-                <Col xs={12} md={4} lg={3} style={{ padding: "10px" }}>
-                    <Chatbot />
                 </Col>
             </Row>
         </Container>

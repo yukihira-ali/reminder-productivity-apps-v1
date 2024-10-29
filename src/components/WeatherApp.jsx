@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -45,16 +45,13 @@ export default function WeatherApp() {
             {weather && (
                 <div>
                     <h6>{weather.name}</h6>
-                    <p>
-                        <h8>Current Weather</h8>
-                        <br />
-                        <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                            alt={weather.weather[0].description}
-                        />
-                        <span>{weather.weather[0].description}</span>
-                    </p>
+                    <h6>Current Weather</h6>
+                    <img
+                        src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                        alt={weather.weather[0].description}
+                    />
+                    <span>{weather.weather[0].description}</span>
                     <p><i className="bi bi-crosshair2" /> Coordinates: Lat {weather.coord.lat} Long {weather.coord.lon}</p>
-
                     <p><i className="bi bi-thermometer-sun" /> Temperature: {weather.main.temp}°C</p>
                     <p>
                         <i className="bi bi-sun" /> Sunrise: {new Date(weather.sys.sunrise * 1000).toLocaleTimeString()}
@@ -65,5 +62,5 @@ export default function WeatherApp() {
                 </div>
             )}
         </div>
-    )
+    );
 }

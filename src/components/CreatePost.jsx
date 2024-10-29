@@ -9,20 +9,20 @@ export default function CreatePost() {
     const [posted, setPosted] = useState(false);
     const navigate = useNavigate();
 
-    const handlePost = async (title, content) => {
+    const handlePost = async (title, content, status) => {
         try {
             const user = auth.currentUser;
             if (!user) {
                 throw new Error('User not found');
             }
             const idToken = await user.getIdToken();
-            const response = await fetch('https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts', {
+            const response = await fetch('https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${idToken}`,
                 },
-                body: JSON.stringify({ title, content }),
+                body: JSON.stringify({ title, content, status }),
             });
             if (response.ok) {
                 setPosted(true);

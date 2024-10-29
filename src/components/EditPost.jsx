@@ -3,24 +3,38 @@ import { useState, useEffect } from "react";
 import { Button, Card, Form, Navbar } from "react-bootstrap";
 
 export default function EditPost() {
-    const id = useParams().id;
-    const [editPost, setEditPost] = useState({ title: '', content: '' });
+    const { uid, id } = useParams(); // // Get both UID and post ID from URL parameters
+    const [editPost, setEditPost] = useState({ title: '', content: '', status: '' });
+    const [loading, setLoading] = useState(true); // State for loading
+    const [error, setError] = useState(''); // State for error messages
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchPost = async () => {
-            const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/${id}`);
-            if (response.ok) {
-                const data = await response.json();
-                setEditPost(data);
+            try {
+                const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/${id}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    // Find the specific post by ID from the fetched posts
+                    const post = data.find(post => post.id === parseInt(id));
+                    console.log(post)
+                    setEditPost(post); // Set the found post to state
+                } else {
+                    setError('Failed to fetch post');
+                }
+            } catch (err) {
+                console.err(err);
+                setError('Error fetching post');
+            } finally {
+                setLoading(false); // Set loading to false after fetching
             }
         };
         fetchPost();
-    }, [id]);
+    }, [uid, id]); // Dependency on ID ensures it refetches when ID changes
 
     const handleEditPost = async (e) => {
         e.preventDefault();
-        const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/${id}`, {
+        const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,16 +44,21 @@ export default function EditPost() {
         if (response.ok) {
             navigate("/profile");
         } else {
-            console.error('Error editing post');
+            const errorData = await response.json();
+            setError(errorData.error || 'Error editing post');
         }
     };
 
+    if (loading) {
+        return <div>Loading...</div>; // Show loading state
+    }
 
     return (
         <div className="container mt-5">
             <Navbar>
                 <Button onClick={() => navigate("/profile")}>Back to Profile</Button>
             </Navbar>
+            {error && <div className="alert alert-danger">{error}</div>} {/* Display error if any */}
             <Card>
                 <Card.Body>
                     <Card.Title className="text-center">Edit Post</Card.Title>
@@ -61,6 +80,21 @@ export default function EditPost() {
                                 onChange={(e) => setEditPost({ ...editPost, content: e.target.value })}
                                 required
                             />
+                        </Form.Group>
+                        <Form.Group controlId="formStatus" className="mb-3">
+                            <Form.Label>Status</Form.Label>
+                            <Form.Control
+                                as="select"
+                                value={editPost.status}
+                                onChange={(e) => setEditPost({ ...editPost, status: e.target.value })}
+                                required
+                            >
+                                <option value="">Select Status</option>
+                                <option value="Not Started">Not Started</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Blocked">Blocked</option>
+                                <option value="Completed">Completed</option>
+                            </Form.Control>
                         </Form.Group>
                         <Button type="submit" variant="primary" className="w-100">Submit</Button>
                     </Form>

@@ -10,6 +10,23 @@ export default function ProfileMidBody() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const fetchPosts = async (uid) => {
+            setLoading(true);
+            try {
+                const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/user/${uid}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setPosts(data);
+                } else {
+                    setPosts([])
+                }
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         if (!currentUser) {
             navigate("/login");
         } else {
@@ -17,29 +34,12 @@ export default function ProfileMidBody() {
         }
     }, [currentUser, navigate]);
 
-    const fetchPosts = async (uid) => {
-        try {
-            const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/user/${uid}`);
-            console.log('Response:', response);
-            if (response.ok) {
-                const data = await response.json();
-                setPosts(data);
-            } else {
-                console.error('Error fetching posts');
-            }
-        } catch (error) {
-            console.error('Error fetching posts:', error);
-        } finally {
-            setLoading(false);
-        }
-    }
-
     const handleEditPost = async (id) => {
         navigate(`/edit/${id}`);
     }
 
     const handleDeletePost = async (id) => {
-        const response = await fetch(`https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/posts/${id}`, {
+        const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/${id}`, {
             method: 'DELETE',
         });
         if (response.ok) {
@@ -77,7 +77,14 @@ export default function ProfileMidBody() {
                             return (
                                 <Card key={post.id} className="mb-3">
                                     <Card.Body>
-                                        <Card.Title>{formattedDate}<br /><hr />Title: {post.title}</Card.Title>
+                                        <Card.Title className="d-flex flex-column justify-content-between align-items-start">
+                                            <div className="d-flex justify-content-between align-items-center w-100">
+                                                {formattedDate}
+                                                <Button className="me-2" disabled>{post.status}</Button>
+                                            </div>
+                                            <span>Title: {post.title}</span>
+                                        </Card.Title>
+
                                         <hr />
                                         <Card.Text>{post.content}</Card.Text>
                                         <div className="d-flex justify-content-end">
