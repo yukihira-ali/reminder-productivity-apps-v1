@@ -44,7 +44,7 @@ export default function AuthPage() {
             const idToken = await user.getIdToken(true);
 
             // Send the token to Replit backend
-            const response = await fetch("https://3a1059c0-715c-4025-b1e6-e706d95de636-00-dddjcjv4nz3q.sisko.replit.dev/verify-token", {
+            const response = await fetch("https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/verify-token", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${idToken}`,
