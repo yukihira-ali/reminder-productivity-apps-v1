@@ -23,7 +23,7 @@ export default function ProfilePage() {
     return <>
         <Navbar expand="lg" style={{ padding: "10px 20px", borderBottom: "2px solid #ddd", backgroundImage: "linear-gradient(to right, #fcbc77, #f5dbbf" }}>
             <Container>
-                <Navbar.Brand href="/profile" style={{ display: "flex", alignItems: "center" }}>
+                <Navbar.Brand style={{ display: "flex", alignItems: "center" }}>
                     <i
                         className="bi bi-pencil"
                         style={{
