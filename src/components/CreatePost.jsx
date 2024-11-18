@@ -4,6 +4,8 @@ import ReminderForm from "./ReminderForm";
 import { auth } from "../firebase";
 import { Button, Navbar } from "react-bootstrap";
 
+const API_BASE_URL = "https://be-reminder-productivity-app-v1.vercel.app";
+
 export default function CreatePost() {
 
     const [posted, setPosted] = useState(false);
@@ -16,7 +18,7 @@ export default function CreatePost() {
                 throw new Error('User not found');
             }
             const idToken = await user.getIdToken();
-            const response = await fetch('https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts', {
+            const response = await fetch(`${API_BASE_URL}/posts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

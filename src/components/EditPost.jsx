@@ -2,6 +2,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Card, Form, Navbar } from "react-bootstrap";
 
+const API_BASE_URL = "https://be-reminder-productivity-app-v1.vercel.app";
+
 export default function EditPost() {
     const { uid, id } = useParams(); // // Get both UID and post ID from URL parameters
     const [editPost, setEditPost] = useState({ title: '', content: '', status: '' });
@@ -12,7 +14,7 @@ export default function EditPost() {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/${id}`);
+                const response = await fetch(`${API_BASE_URL}/posts/${id}`);
                 if (response.ok) {
                     const data = await response.json();
                     // Find the specific post by ID from the fetched posts
@@ -34,7 +36,7 @@ export default function EditPost() {
 
     const handleEditPost = async (e) => {
         e.preventDefault();
-        const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/posts/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

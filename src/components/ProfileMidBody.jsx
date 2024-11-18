@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { Button, Card, Spinner } from "react-bootstrap";
 
+const API_BASE_URL = "https://be-reminder-productivity-app-v1.vercel.app";
+
 export default function ProfileMidBody() {
     const navigate = useNavigate();
     const { currentUser } = useContext(AuthContext);
@@ -13,7 +15,7 @@ export default function ProfileMidBody() {
         const fetchPosts = async (uid) => {
             setLoading(true);
             try {
-                const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/user/${uid}`);
+                const response = await fetch(`${API_BASE_URL}/posts/user/${uid}`);
                 if (response.ok) {
                     const data = await response.json();
                     setPosts(data);
@@ -39,7 +41,7 @@ export default function ProfileMidBody() {
     }
 
     const handleDeletePost = async (id) => {
-        const response = await fetch(`https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/posts/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/posts/${id}`, {
             method: 'DELETE',
         });
         if (response.ok) {

@@ -5,6 +5,8 @@ import { AuthContext } from "../components/AuthProvider";
 import { Button, Col, Form, Image, Modal, Row } from "react-bootstrap";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+const API_BASE_URL = "https://be-reminder-productivity-app-v1.vercel.app";
+
 export default function AuthPage() {
 
     const loginImage = '/images/planner.jpg';
@@ -44,7 +46,7 @@ export default function AuthPage() {
             const idToken = await user.getIdToken(true);
 
             // Send the token to Replit backend
-            const response = await fetch("https://eae02eb9-4d0e-4db0-ae83-6adefaa44fdb-00-31qhfn6omilw.pike.replit.dev/verify-token", {
+            const response = await fetch(`${API_BASE_URL}/verify-token`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${idToken}`,
