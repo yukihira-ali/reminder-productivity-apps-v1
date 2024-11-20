@@ -56,7 +56,7 @@ function FrontPage() {
                         <img src='/images/no reminder.png' className='d-block w-100' alt='no reminders' />
                         <div className="carousel-caption d-none d-md-block">
                             <h5>Profile page</h5>
-                            <p>Create reminders, Add photos, and check weather</p>
+                            <p>Create Reminders, Add Photos, and Check Weather</p>
                         </div>
                     </div>
                     <div className='carousel-item'>
