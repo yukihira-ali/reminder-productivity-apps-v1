@@ -6,12 +6,14 @@ import CreatePost from "./components/CreatePost";
 import EditPost from "./components/EditPost";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import GalleryPage from "./pages/GalleryPage";
+import FrontPage from "./pages/FrontPage";
 
 export default function App() {
   return (
     <AuthProvider>
       <Router> {/* Changed from BrowserRouter to HashRouter */}
         <Routes>
+          <Route path="/" element={<FrontPage />} />
           <Route path="/login" element={<AuthPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/create" element={<CreatePost />} />

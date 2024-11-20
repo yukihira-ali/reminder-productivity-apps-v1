@@ -25,3 +25,28 @@
 .hover-icon:hover .arrow-in {
     display: none;
 }
+
+
+/* Previous button */
+.carousel-control-prev-icon {
+    background-color: black;
+    /* Change background color of the "previous" arrow */
+    border-radius: 50%;
+    /* Optional: Make it circular */
+}
+
+/* Next button */
+.carousel-control-next-icon {
+    background-color: black;
+    /* Change background color of the "next" arrow */
+    border-radius: 50%;
+    /* Optional: Make it circular */
+}
+
+
+
+.carousel-caption h5,
+.carousel-caption p {
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}

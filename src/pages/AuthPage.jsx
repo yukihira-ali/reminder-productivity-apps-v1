@@ -30,7 +30,9 @@ export default function AuthPage() {
         if (currentUser) navigate("/profile");
     }, [currentUser, navigate]);
 
-
+    const handleFrontPage = () => {
+        navigate("/");
+    };
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -92,7 +94,10 @@ export default function AuthPage() {
                 <Image src={loginImage} fluid />
             </Col>
             <Col sm={6} className="p-4" style={{ backgroundImage: "linear-gradient(to right, #fcbc77, #f5dbbf)" }}>
+
                 <i className="bi bi-pencil" style={{ fontStyle: "arial", fontSize: 40, color: "black", fontWeight: "bold" }}> Friendly Reminder</i>
+
+                <Button className="btn btn-primary float-end rounded-pill" variant="outline-dark" style={{ backgroundColor: "#e0af79" }} onClick={handleFrontPage}>Back to Home</Button>
 
                 <p className="mt-4" style={{ fontSize: 40, fontStyle: "italic" }}>Fail to Plan, Plan to Fail!</p>
                 <h2 className="my-4" style={{ fontSize: 30 }}>Register for Free and Boost Your Productivity!</h2>
