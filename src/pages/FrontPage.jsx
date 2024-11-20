@@ -17,22 +17,85 @@ function FrontPage() {
                     <Button className="rounded-pill hover-icon" variant="outline-dark" style={{ backgroundColor: "#e0af79" }} onClick={handleAuthPage}>Sign In</Button>
                 </Navbar.Collapse>
             </Navbar>
-            <div className="container" style={{ padding: "30px", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div className='row' style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-                    <div className="col" style={{ textAlign: 'center', fontFamily: 'monospace' }}>
-                        {`"Fail to plan, plan to fail"`}
-                    </div>
-                    <div className='vertical-line' style={{ height: '50px', width: '0.5px', backgroundColor: "#e0af79", margin: '0 20px', transform: 'scaleX(0.2)' }}></div>
-                    <div className="col" style={{ textAlign: 'center', fontFamily: 'monospace' }}>
-                        {`"Forgotful? Make a reminder"`}
-                    </div>
-                    <div className='vertical-line' style={{ height: '50px', width: '0.5px', backgroundColor: "#e0af79", margin: '0 20px', transform: 'scaleX(0.2)' }}></div>
-                    <div className="col" style={{ textAlign: 'center', fontFamily: 'monospace' }}>
-                        {`"Simplified your thoughts, make life simpler"`}
+
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    minHeight: "8vh", // Makes the parent take full viewport height
+                    marginTop: "20px",
+                }}
+            >
+                <div
+                    className="container"
+                    style={{
+                        padding: "10px 20px",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "10px",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}
+                >
+                    <div className='row g-0 justify-content-center align-items-center'>
+
+                        <div
+                            className="col-12 col-md-3 d-flex justify-content-center align-items-center"
+                            style={{ textAlign: 'center', fontFamily: 'monospace' }}
+                        >
+                            {`"Fail to plan, plan to fail"`}
+                        </div>
+
+                        {/* Vertical Line */}
+                        <div
+                            className="d-none d-md-flex justify-content-center align-items-center"
+                            style={{ width: "1px" }}
+                        >
+                            <div
+                                className="vertical-line"
+                                style={{
+                                    height: "50px",
+                                    width: "1px",
+                                    backgroundColor: "#e0af79",
+                                }}
+                            ></div>
+                        </div>
+                        <div
+                            className="col-12 col-md-3 d-flex justify-content-center align-items-center"
+                            style={{ textAlign: 'center', fontFamily: 'monospace' }}
+                        >
+                            {`"Forgotful? Make a reminder"`}
+                        </div>
+
+                        {/* Vertical Line */}
+                        <div
+                            className="d-none d-md-flex justify-content-center align-items-center"
+                            style={{ width: "1px" }}
+                        >
+                            <div
+                                className="vertical-line"
+                                style={{
+                                    height: "50px",
+                                    width: "1px",
+                                    backgroundColor: "#e0af79",
+                                }}
+                            ></div>
+                        </div>
+
+                        <div
+                            className="col-12 col-md-3 d-flex justify-content-center align-items-center"
+                            style={{ textAlign: 'center', fontFamily: 'monospace' }}
+                        >
+                            {`"Simplified your thoughts, make life simpler"`}
+                        </div>
                     </div>
                 </div>
             </div>
+
             <hr style={{ border: '1px solid black', margin: '20px 0' }} />
+
             <div style={{ padding: "20px", textAlign: 'center', fontFamily: 'Roboto', fontSize: '40px', color: '#333333', overflow: 'hidden', width: '100%' }}>
                 <h2 style={{ display: 'inline-block', whiteSpace: 'nowrap', animation: 'moveRight 5s linear infinite' }}>
                     Features
