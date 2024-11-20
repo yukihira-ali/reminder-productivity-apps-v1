@@ -104,7 +104,7 @@ export default function AuthPage() {
                 <h2 className="my-4" style={{ fontSize: 30 }}>Join Now!</h2>
 
                 <Col sm={5} className="d-grid gap-2">
-                    <Button className="rounded-pill" variant="outline-dark">
+                    {/* <Button className="rounded-pill" variant="outline-dark">
                         <i className="bi bi-google"></i> Sign up with Google
                     </Button>
                     <Button className="rounded-pill" variant="outline-dark">
@@ -112,8 +112,8 @@ export default function AuthPage() {
                     </Button>
                     <Button className="rounded-pill" variant="outline-dark">
                         <i className="bi bi-apple"></i> Sign up with Apple
-                    </Button>
-                    <p style={{ textAlign: "center" }}>or</p>
+                    </Button> */}
+                    {/* <p style={{ textAlign: "center" }}>or</p> */}
                     <Button className="rounded-pill hover-icon" variant="outline-dark" style={{ backgroundColor: "#e0af79" }} onClick={handleShowSignUp}>
                         <i className="bi bi-lock lock-icon"></i>
                         <i className="bi bi-unlock unlock-icon"></i> Create an Account
