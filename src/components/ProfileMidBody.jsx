@@ -88,7 +88,7 @@ export default function ProfileMidBody() {
                                         </Card.Title>
 
                                         <hr />
-                                        <Card.Text>{post.content}</Card.Text>
+                                        <Card.Text style={{ whiteSpace: "pre-wrap" }}>{post.content}</Card.Text>
                                         <div className="d-flex justify-content-end">
                                             <Button
                                                 variant="warning"
